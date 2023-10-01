@@ -7,7 +7,7 @@ var connection=mysql.createConnection
     user : 'root',
     password : '',
     port : '3306',        
-    database : 'loginregister'  
+    database : 'pawsitivity'  
 });
 
 

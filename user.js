@@ -5,22 +5,21 @@ const router = express.Router();
 const db = require('./db.js');
 
 router.route('/register').post((req, res) => {
-  var IDclient = req.body.IDclient;
   var surname = req.body.surname;
-  var fname = req.body.fname;
-  var lname = req.body.lname;
-  var mname = req.body.mname;
-  var address = req.body.address;
+  var first_name = req.body.first_name;
+  var middle_name = req.body.middle_name;
   var suffix = req.body.suffix;
+  var address = req.body.address;
   var sex = req.body.sex;
-  var contactNumber = req.body.contactNumber;
-  var password = req.body.password;
   var email = req.body.email;
+  var contact = req.body.contact;
+  var username = req.body.username;
+  var password = req.body.password;
   var role = req.body.role;
 
-  var sqlQuery = "INSERT INTO user(IDclient,surname,fname,lname,mname,address,suffix,sex,contactNumber,password,email,role) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+  var sqlQuery = "INSERT INTO user(surname,first_name,middle_name,suffix,address,sex,email,contact,username,password,role) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
-  db.query(sqlQuery, [IDclient,surname,fname,lname,mname,address,suffix,sex,contactNumber,password,email,role], function (error, data, fields) {
+  db.query(sqlQuery, [surname,first_name,middle_name,suffix,address,sex,email,contact,username,password,role], function (error, data, fields) {
     if (error) {
       res.send(JSON.stringify({ success: false, message: error }));
     } else {
